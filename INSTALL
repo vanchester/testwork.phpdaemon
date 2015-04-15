@@ -1,0 +1,5 @@
+1. Clone repository or unpack tarball in some folder.
+2. Copy config.example.php to config.php and change settings in config.php (optional).
+3. Start Daemon with command /path/to/php /path/to/daemon.php &. You should see message Daemon listening <host>:<port> if success.
+4. Configure virtual host in web-server to redirect all HTTP-request to file public/index.php.
+5. Create HTTP-request to your domain, for example http://your.domain/cmd1.
