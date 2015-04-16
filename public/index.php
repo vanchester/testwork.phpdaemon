@@ -7,16 +7,12 @@ $eol = null;
 
 if (php_sapi_name() === 'cli') {
     $eol = PHP_EOL;
-    if (!empty($argv[1])) {
-        $dataKey = $argv[1];
-    }
+    $dataKey = isset($argv[1]) ? $argv[1] : null;
 } else {
-    if (!empty($_SERVER['REQUEST_URI'])) {
-        $dataKey = trim($_SERVER['REQUEST_URI'], '/');
-    }
+    $dataKey = isset($_SERVER['REQUEST_URI']) ? trim($_SERVER['REQUEST_URI'], '/') : null;
 }
 
-if (empty($dataKey)) {
+if ($dataKey == '') {
     exit("[ERR] Data key required" . $eol);
 }
 
